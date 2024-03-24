@@ -10,7 +10,7 @@ model = AutoModelForCausalLM.from_pretrained("mistralai/Mistral-7B-v0.1", quanti
 input_text = "What is the best recipe for Pepperoni pizza?"
 model_inputs = tokenizer([input_text], return_tensors="pt").to("cuda")
 
-generated_text = model.generate(**model_inputs, max_length=100, pad_token_id=tokenizer.eos_token_id)
+generated_text = model.generate(**model_inputs, max_length=30, pad_token_id=tokenizer.eos_token_id)
 
 result = tokenizer.batch_decode(generated_text, skip_special_tokens=True)[0]
 
